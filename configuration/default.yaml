@@ -1,0 +1,94 @@
+executables:
+  - name: "MonsterHunterRise.exe"
+    signatures:
+      - name: "STAGE_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? ?? 8B ?? ?? ?? ?? 83 78 60 ?? 74 ??"
+        instruction_offset: 3
+
+      - name: "MONSTER_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B 88 ?? ?? ?? ?? 4A 8B 44 C9 20"
+        instruction_offset: 3
+
+      - name: "LOCKON_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 89 ?? 24 ?? ?? ?? 4C 8B ?? ?? 49 8B"
+        instruction_offset: 3
+
+      - name: "CHARACTER_ADDRESS"
+        signature: "48 8B ?? ?? ?? ?? ?? 80 B8 DC 00 00 00 00 0F 85"
+        instruction_offset: 3
+
+      - name: "SAVE_ADDRESS"
+        signature: "48 8B 0D ?? ?? ?? ?? 48 85 ?? 74 ?? 48 83 ?? 10 00 75 ?? B0 01 0F B6 C0 85 C0 75 ?? 38 81 A0 00 00 00"
+        instruction_offset: 3
+
+      - name: "WEAPON_ADDRESS"
+        signature: "48 8B 0D ?? ?? ?? ?? 8B 51 70 39 93"
+        instruction_offset: 3
+
+      - name: "ABNORMALITIES_ADDRESS"
+        signature: "48 8B 15 ?? ?? ?? ?? 48 85 D2 74 08 48 8B CB E8 ?? ?? ?? ?? 48 8B 15 ?? ?? ?? ?? 48 85 D2 74 08 48 8B CB E8 ?? ?? ?? ?? 48 8B 15 ?? ?? ?? ?? 48 85 D2 74 0D"
+        instruction_offset: 3
+
+      - name: "TRAINING_DOJO_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B E9 48 85 C0 74 0B 48 83 78 10 00 74 04 32 D2"
+        instruction_offset: 3
+
+      - name: "CHAT_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8D 4C 24 ?? 48 8B D7 4C 8B 40 ?? E8 ?? ?? ?? ?? 0F 10 00"
+        instruction_offset: 3
+
+      - name: "CHAT_UI_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 83 B8 ?? ?? ?? ?? 00 74 27"
+        instruction_offset: 3
+
+      - name: "SESSION_PLAYERS_ADDRESS"
+        signature: "48 8B ?? ?? ?? ?? ?? 45 33 C0 48 8B ?? ?? ?? ?? ?? 48 8B 57 ?? 0F B6 68 10 E8 ?? ?? ?? ?? 3B E8"
+        instruction_offset: 3
+
+      - name: "UI_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 83 B8 ?? ?? ?? ?? 00 74 27"
+        instruction_offset: 3
+
+      - name: "MOUSE_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 4C 8B 5B ?? 0F 29 44 24"
+        instruction_offset: 3
+
+      - name: "QUEST_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 83 B8 ?? ?? ?? ?? 02 75 ?? 83 B8 ?? ?? ?? ?? 07"
+        instruction_offset: 3
+
+      - name: "MEOWMASTERS_ADDRESS"
+        signature: "C7 82 ?? ?? ?? ?? ?? ?? ?? ?? 48 8B 3D ?? ?? ?? ?? 85 C0 79"
+        instruction_offset: 13
+
+      - name: "COHOOT_ADDRESS"
+        signature: "48 8B 05 ?? ?? ?? ?? 33 ED 48 8B 48 ?? 8B 41"
+        instruction_offset: 3
+
+      - name: "EVENTCAMERA_ADDRESS"
+        signature: "40 53 48 83 EC ?? 48 8B 05 ?? ?? ?? ?? 48 8B D9 80 B8 ?? ?? ?? ?? 00 0F 85 ?? ?? ?? ?? 48 8B"
+        instruction_offset: 3
+
+      - name: "FUNC_WIREBUG_HIDE_AIM_ADDRESS"
+        signature: "49 8B ?? ?? ?? ?? ?? 48 83 60 50 FE 49 83 BD ?? ?? ?? ?? 00"
+        instruction_offset: 7
+        is_relative: false
+
+      - name: "SERVANTS_DATA_ADDRESS"
+        signature: "48 8B 15 ?? ?? ?? ?? 48 85 D2 74 ?? 48 83 7A ?? 00 74 04 32 C0 EB 02 B0 01 0F B6 C0 48 89 74 24 ?? 48"
+        instruction_offset: 3
+
+      - name: "CRC_FUNC_1"
+        signature: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20 44 8B 05 ?? ?? ?? ?? 48 8B EA 8B 05"
+        instruction_offset: 0
+        is_relative: false
+
+      - name: "CRC_FUNC_2"
+        signature: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 48 8B 5A 10 48 8B F2 48 8B 52 20 48 8B E9"
+        instruction_offset: 0
+        is_relative: false
+
+      - name: "CRC_FUNC_3"
+        signature: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 4C 8B 05 ?? ?? ?? ?? 33 DB"
+        instruction_offset: 0
+        is_relative: false

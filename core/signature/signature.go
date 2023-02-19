@@ -1,4 +1,4 @@
-package core
+package signature
 
 import (
 	"strconv"
@@ -17,7 +17,7 @@ type PatternEdge struct {
 	Next       *PatternEdge
 }
 
-func NewSignatureFrom(name string, pattern string) *PatternOwner {
+func New(name string, pattern string) *PatternOwner {
 	patternBytes := strings.Split(pattern, " ")
 
 	patternOwner := &PatternOwner{
