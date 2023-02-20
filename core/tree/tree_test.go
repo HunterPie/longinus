@@ -12,7 +12,7 @@ func TestPatternTree_FindPattern(t *testing.T) {
 	owners := []*signature.PatternOwner{
 		signature.New("test_1", "01 ?? 03 04"),
 		signature.New("test_2", "02 03 04"),
-		signature.New("test_3", "01 02 03 ??"),
+		signature.New("test_3", "01 02 03"),
 	}
 	tests := []struct {
 		Owners   []*signature.PatternOwner
