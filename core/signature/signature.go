@@ -30,7 +30,7 @@ func New(name string, pattern string) *PatternOwner {
 	}
 	patternOwner.Pattern = currentEdge
 
-	for _, patternByte := range patternBytes {
+	for i, patternByte := range patternBytes {
 		isWildcard := patternByte == "??"
 		var parsedValue uint8
 
@@ -41,6 +41,11 @@ func New(name string, pattern string) *PatternOwner {
 
 		currentEdge.Value = parsedValue
 		currentEdge.IsWildcard = isWildcard
+
+		if i >= len(patternBytes)-1 {
+			break
+		}
+
 		nextEdge := &PatternEdge{
 			owner: patternOwner,
 			Next:  nil,
