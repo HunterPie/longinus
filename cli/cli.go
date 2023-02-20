@@ -17,11 +17,11 @@ func ParseArguments() (*LonginusArguments, error) {
 	executable := flag.String("executable", "", "executable to scan for byte signatures")
 	configuration := flag.String("config", "./configuration/default.yaml", "Longinus configuration with byte signature definitions")
 
+	flag.Parse()
+
 	if !verifyRequired(executable) {
 		return nil, ErrMissingExecutable
 	}
-
-	flag.Parse()
 
 	return &LonginusArguments{
 		Executable:    *executable,

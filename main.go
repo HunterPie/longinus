@@ -28,7 +28,7 @@ func main() {
 
 	patterns := make([]*signature.PatternOwner, 0)
 
-	for _, pattern := range config.Executables[0].Signatures {
+	for _, pattern := range config.Executables[1].Signatures {
 		patterns = append(patterns, signature.New(pattern.Name, pattern.Signature))
 	}
 

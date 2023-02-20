@@ -13,14 +13,14 @@ def flatten_recursively(map: dict) -> dict:
 
     key = f"{value:02X}" if not is_wildcard else "??"
 
-    return { key: [flatten_recursively(next) for next in nexts] }
+    return { "name": key, "children": [flatten_recursively(next) for next in nexts] }
 
 def flatten_patterns(map: dict) -> dict:
     output = []
     for pattern in testcase.get("Nodes", []):
         output.append(flatten_recursively(pattern))
 
-    return {"Nodes": output}
+    return {"name": "root", "children": output}
 
 with open("output_flatten.json", "w") as output:
-    json.dump(flatten_patterns(testcase), output, ensure_ascii=False)
+    json.dump(flatten_patterns(testcase), output, ensure_ascii=False, indent=4)

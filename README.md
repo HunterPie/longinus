@@ -27,3 +27,40 @@ executables:
 ```
 
 You can also find an example under the `./configuration/default.yaml` folder.
+
+### Details
+
+The signatures will be converted to a linked list and merged into a tree, which means the following signatures:
+
+- `48 8B 05 ?? 02 00`
+- `48 8B 15 ?? ??`
+- `40 53 48 83`
+
+Will be merged into this:
+
+```
+         ┌──────┐
+         │ root │
+         └──┬───┘
+      ┌─────┴─────┐
+    ┌─┴──┐      ┌─┴──┐
+    │ 48 │      │ 40 │
+    └─┬──┘      └─┬──┘
+      │           │
+    ┌─┴──┐      ┌─┴──┐
+    │ 8B │      │ 53 │
+    └─┬──┘      └─┬──┘
+  ┌───┴───┐       │
+┌─┴──┐  ┌─┴──┐  ┌─┴──┐
+│ 05 │  │ 15 │  │ 48 │
+└─┬──┘  └─┬──┘  └────┘
+  │       │
+┌─┴──┐  ┌─┴──┐
+│ ?? │  │ ?? │
+└─┬──┘  └────┘
+  │
+┌─┴──┐
+│ 02 │
+└────┘
+```
+

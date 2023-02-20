@@ -92,3 +92,13 @@ executables:
         signature: "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 4C 8B 05 ?? ?? ?? ?? 33 DB"
         instruction_offset: 0
         is_relative: false
+  - name: "Test"
+    signatures:
+      - name: "test 1"
+        signature: "48 8B 05 ?? 02 00"
+
+      - name: "test 2"
+        signature: "48 8B 15 ?? ??"
+
+      - name: "test 3"
+        signature: "40 53 48 83"
