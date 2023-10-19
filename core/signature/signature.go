@@ -6,8 +6,11 @@ import (
 )
 
 type PatternOwner struct {
-	Name    string
-	Pattern *PatternEdge
+	Name         string
+	Pattern      *PatternEdge
+	Length       int
+	TargetOffset int
+	IsRelative   bool
 }
 
 type PatternEdge struct {
@@ -17,12 +20,15 @@ type PatternEdge struct {
 	Next       *PatternEdge
 }
 
-func New(name string, pattern string) *PatternOwner {
+func New(name string, pattern string, targetOffset int, isRelative bool) *PatternOwner {
 	patternBytes := strings.Split(pattern, " ")
 
 	patternOwner := &PatternOwner{
-		Name:    name,
-		Pattern: nil,
+		Name:         name,
+		Pattern:      nil,
+		Length:       len(patternBytes),
+		TargetOffset: targetOffset,
+		IsRelative:   isRelative,
 	}
 	currentEdge := &PatternEdge{
 		owner: patternOwner,

@@ -19,7 +19,7 @@ func TestPatternTree_FindPattern(t *testing.T) {
 		TestCase []uint8
 		Expected []*signature.PatternOwner
 	}{
-		{owners, []uint8{0x01, 0x02, 0x03, 0x04}, []*signature.PatternOwner{owners[0], owners[2]}},
+		{owners, []uint8{0x01, 0x02, 0x03, 0x04, 0x5}, []*signature.PatternOwner{owners[0], owners[2]}},
 		{owners, []uint8{0x02, 0x03, 0x04}, []*signature.PatternOwner{owners[1]}},
 		{owners, []uint8{0x01, 0x04, 0x05}, []*signature.PatternOwner{}},
 	}

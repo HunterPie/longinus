@@ -9,6 +9,7 @@ type PatternTreeNode struct {
 	Value      uint8
 	IsWildcard bool
 	Nodes      []*PatternTreeNode
+	Found      bool
 }
 
 func (node *PatternTreeNode) IsEqualToEdge(edge *signature.PatternEdge) bool {
@@ -32,6 +33,10 @@ func (node *PatternTreeNode) hasOwners() bool {
 }
 
 func (node *PatternTreeNode) findRecursively(bytearray []uint8, owners []*signature.PatternOwner) []*signature.PatternOwner {
+	if node.Found {
+		return owners
+	}
+
 	if len(bytearray) == 0 {
 		return owners
 	}
@@ -43,6 +48,10 @@ func (node *PatternTreeNode) findRecursively(bytearray []uint8, owners []*signat
 
 	if node.hasOwners() {
 		owners = append(owners, node.Owners...)
+
+		// If Nodes is empty, that means this is the last node
+		// in that case, we can mark this node as found
+		node.Found = true
 	}
 
 	for _, nextNode := range node.Nodes {
@@ -53,7 +62,9 @@ func (node *PatternTreeNode) findRecursively(bytearray []uint8, owners []*signat
 }
 
 func (node *PatternTreeNode) Find(bytearray []uint8) []*signature.PatternOwner {
-	return node.findRecursively(bytearray, make([]*signature.PatternOwner, 0))
+	foundOwners := node.findRecursively(bytearray, make([]*signature.PatternOwner, 0))
+
+	return foundOwners
 }
 
 func FindNodeByEdge(nodes []*PatternTreeNode, edge *signature.PatternEdge) *PatternTreeNode {
@@ -81,6 +92,7 @@ func NewFromEdge(edge *signature.PatternEdge) *PatternTreeNode {
 
 type PatternTree struct {
 	Nodes []*PatternTreeNode
+	Depth int
 }
 
 func (tree *PatternTree) FindByEdge(edge *signature.PatternEdge) *PatternTreeNode {
@@ -107,8 +119,23 @@ func (tree *PatternTree) Add(node *PatternTreeNode) {
 	tree.Nodes = append(tree.Nodes, node)
 }
 
+func maxLengthPattern(owners []*signature.PatternOwner) int {
+	maxLength := 0
+
+	for _, owner := range owners {
+		if owner.Length > maxLength {
+			maxLength = owner.Length
+		}
+	}
+
+	return maxLength
+}
+
 func buildTree(owners []*signature.PatternOwner) *PatternTree {
-	tree := &PatternTree{Nodes: make([]*PatternTreeNode, 0)}
+	tree := &PatternTree{
+		Nodes: make([]*PatternTreeNode, 0),
+		Depth: maxLengthPattern(owners),
+	}
 
 	for _, owner := range owners {
 		pattern := owner.Pattern
