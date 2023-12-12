@@ -1,29 +1,34 @@
-## Longinus
+## longinus
 
-Longinus is a byte signature tree generator and scanner for scanning byte patterns in statically compiled executables. In Brazil, Saint Longinus is known for its power of finding missing objects.
-
-> **Attention** This application is still under development and cannot be used in its current state 
+Longinus is a byte signature tree generator and scanner for finding byte patterns in binary files. In Brazil, Saint Longinus is known for its power of finding missing objects.
 
 ### Usage
 
 The point of this application is to be agnostic to whatever executable you are scanning, so all you need to do is define a configuration for Longinus and run the command:
 
 ```shell
-./Longinus -executable <PATH> -config <PATH>
+./longinus -executable <PATH> -config <PATH>
 ```
 
 #### Configuration
 
-The configuration is a `yaml` file containing the executable name and a list of signatures. Here's the schema:
+The configuration is a `yaml` file containing the executable name and a list of signatures with its properties, the available properties are:
+
+| Name               | Description                                                                                                                               |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| name               | Name of the signature                                                                                                                     |
+| signature          | Byte array of the signature, it supports wildcards as `??`                                                                                |
+| instruction_offset | The offset that will be added to the address where the signature was found                                                                |
+|  is_relative       | If true, the address where the signature was found will be used. If the value is false, the value will be `address + *(address + offset)` |
 
 ```yaml
 executables:
-  - name: EXECUTABLE_NAME.exe
+  - name: executable_name.exe
     signatures:
-      - name: "PATTERN_NAME"
-        signature: "48 8B ?? ?? ?? ?? 00 ??"
-        instruction_offset: 3
-        is_relative: true # This field is optional, true by default
+      - name: "PATTERN_NAME"                 
+        signature: "48 8B ?? ?? ?? ?? 00 ??" 
+        instruction_offset: 3                 
+        is_relative: true                     
 ```
 
 You can also find an example under the `./configuration/default.yaml` folder.
