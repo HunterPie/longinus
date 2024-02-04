@@ -6,7 +6,7 @@ import (
 	"github.com/HunterPie/Longinus/core/reader"
 	"github.com/HunterPie/Longinus/core/signature"
 	"github.com/HunterPie/Longinus/core/tree"
-	"github.com/HunterPie/Longinus/pkg/file"
+	"github.com/HunterPie/Longinus/pkg/windows"
 	"github.com/HunterPie/Longinus/pkg/yaml"
 	"github.com/jedib0t/go-pretty/v6/table"
 	"log"
@@ -51,7 +51,7 @@ func main() {
 
 	patternTree := tree.New(patterns...)
 
-	dataSource := file.New(args.Executable)
+	dataSource := windows.NewMemory("MonsterHunterRise.exe", 25596) // file.New(args.Executable)
 	log.Printf("Finished loading up datasource")
 
 	scanner := reader.New(dataSource, patternTree)

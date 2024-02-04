@@ -3,9 +3,14 @@ package windows
 import (
 	"github.com/0xrawsec/golang-win32/win32"
 	"github.com/0xrawsec/golang-win32/win32/kernel32"
+	"github.com/HunterPie/Longinus/core/reader"
 	"golang.org/x/sys/windows"
 	"path/filepath"
 	"unsafe"
+)
+
+const (
+	allAccess = 0x1F0FFF
 )
 
 type Memory struct {
@@ -31,16 +36,18 @@ func (m *Memory) readMemory() {
 		}
 	}
 	var lpBytesRead uintptr
-	bytesBuffer := make([]byte, moduleBaseAddress+moduleImageSize)
+	bytesBuffer := make([]byte, moduleImageSize)
 	unsafeBytesPtr := unsafe.Pointer(&bytesBuffer[0])
 
-	_ = windows.ReadProcessMemory(
+	if err := windows.ReadProcessMemory(
 		windows.Handle(m.handle),
 		moduleBaseAddress,
 		(*byte)(unsafeBytesPtr),
-		moduleBaseAddress+moduleImageSize,
+		moduleImageSize,
 		&lpBytesRead,
-	)
+	); err != nil {
+		panic(err)
+	}
 
 	m.buffer = bytesBuffer
 }
@@ -52,4 +59,13 @@ func (m *Memory) Read() []uint8 {
 	}
 
 	return m.buffer
+}
+
+func NewMemory(processName string, pid int) reader.ByteDataSource {
+	handle, _ := kernel32.OpenProcess(allAccess, win32.FALSE, win32.DWORD(pid))
+
+	return &Memory{
+		handle:      handle,
+		processName: processName,
+	}
 }

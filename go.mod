@@ -3,6 +3,7 @@ module github.com/HunterPie/Longinus
 go 1.19
 
 require (
+	github.com/0xrawsec/golang-utils v1.3.0 // indirect
 	github.com/0xrawsec/golang-win32 v1.0.14 // indirect
 	github.com/jedib0t/go-pretty/v6 v6.4.8 // indirect
 	github.com/mattn/go-runewidth v0.0.13 // indirect
