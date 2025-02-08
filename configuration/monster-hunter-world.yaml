@@ -1,0 +1,107 @@
+executables:
+  - name: "MonsterHunterWorld.exe"
+    signatures:
+      - name: "CANTEEN_OFFSET"
+        signature: "40 53 48 83 EC 20 48 8B D9 BA ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 84 C0 75 ?? 8B 8B"
+        instruction_offset: 17
+        is_relative: true
+      - name: "ZONE_OFFSET"
+        signature: "48 8B D9 48 8B D1 48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 84 C0"
+        instruction_offset: 9
+        is_relative: true
+      - name: "HUD_DATA_OFFSET"
+        signature: "48 8B D9 48 8B D1 48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 84 C0"
+        instruction_offset: 9
+        is_relative: true
+      - name: "MONSTER_TARGETED_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 41 8B 86 ?? ?? ?? ?? 44 8B F8"
+        instruction_offset: 3
+        is_relative: true
+      - name: "LEVEL_OFFSET"
+        signature: "48 83 EC 28 48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8D 15 ?? ?? ?? ??"
+        instruction_offset: 7
+        is_relative: true
+      - name: "WEAPON_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? 48 8D 54 24 ?? 41 B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 45"
+        instruction_offset: 3
+        is_relative: true
+      - name: "WEAPON_MECHANICS_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? 48 8D 54 24 ?? 41 B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 45"
+        instruction_offset: 3
+        is_relative: true
+      - name: "EQUIPMENT_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? 48 8D 54 24 ?? 41 B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 45"
+        instruction_offset: 3
+        is_relative: true
+      - name: "ABNORMALITY_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? 48 8D 54 24 ?? 41 B8 ?? ?? ?? ?? E8 ?? ?? ?? ?? 45"
+        instruction_offset: 3
+        is_relative: true
+      - name: "MONSTER_OFFSET"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B 88 ?? ?? ?? ?? 48 F7 D1"
+        instruction_offset: 3
+        is_relative: true
+      - name: "ITEM_DATA_OFFSET"
+        signature: "4C 8B 05 ?? ?? ?? ?? 48 8B D9 0F BA E0"
+        instruction_offset: 3
+        is_relative: true
+      - name: "GAME_HUD_INFO_OFFSET"
+        signature: "4C 8B 05 ?? ?? ?? ?? 48 8B D9 0F BA E0"
+        instruction_offset: 3
+        is_relative: true
+      - name: "PARTY_OFFSET"
+        signature: "4C 8B 05 ?? ?? ?? ?? 33 C0 49 8B 88"
+        instruction_offset: 3
+        is_relative: true
+      - name: "SESSION_OFFSET"
+        signature: "4C 8B 05 ?? ?? ?? ?? 33 C0 49 8B 88"
+        instruction_offset: 3
+        is_relative: true
+      - name: "DAMAGE_OFFSET"
+        signature: "4C 8B 05 ?? ?? ?? ?? 33 C0 49 8B 88"
+        instruction_offset: 3
+        is_relative: true
+      - name: "WORLD_DATA_OFFSET"
+        signature: "E8 ?? ?? ?? ?? 48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8B D0 48 8B CB 48 83"
+        instruction_offset: 8
+        is_relative: true
+      - name: "WEAPON_DATA_OFFSET"
+        signature: "48 83 EC 30 48 8B 1D ?? ?? ?? ?? 48 8B F9 E8 ?? ?? ?? ??"
+        instruction_offset: 7
+        is_relative: true
+      - name: "GAME_INPUT_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? 8B D3 E8 ?? ?? ?? ?? 84 C0 75 ?? 48 8B 0D ?? ?? ?? ?? 8B D3"
+        instruction_offset: 3
+        is_relative: true
+      - name: "SETTINGS_KEYBOARD"
+        signature: "48 8B 0D ?? ?? ?? ?? 8B D3 E8 ?? ?? ?? ?? 84 C0 75 ?? 48 8B 0D ?? ?? ?? ?? 8B D3"
+        instruction_offset: 3
+        is_relative: true
+      - name: "GAME_FRAME_COUNT_OFFSET"
+        signature: "48 03 15 ?? ?? ?? ?? 48 89 50 ?? 4B 8B"
+        instruction_offset: 3
+        is_relative: true
+      - name: "GAME_RENDER_INFO_OFFSET"
+        signature: "48 8B 15 ?? ?? ?? ?? 48 81 C2 ?? ?? ?? ?? 39 32"
+        instruction_offset: 3
+        is_relative: true
+      - name: "GAME_MOUSE_INFO_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? 8B D7 E8 ?? ?? ?? ?? 84 C0 75 ?? 66 81"
+        instruction_offset: 3
+        is_relative: true
+      - name: "GAME_CHAT_OFFSET"
+        signature: "48 8B 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 84 C0 74 ?? F6 83"
+        instruction_offset: 3
+        is_relative: true
+      - name: "FUN_GAME_INPUT"
+        signature: "48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 48 89 7C 24 ?? 41 56 48 83 EC ?? 33 FF 48 8D B1"
+        instruction_offset: 0
+        is_relative: false
+      - name: "FUN_CHAT_SYSTEM"
+        signature: "48 89 5C 24 ?? 48 89 74 24 ?? 57 48 81 EC ?? ?? ?? ?? 80 79 ?? 00 41 8B F1"
+        instruction_offset: 0
+        is_relative: false
+      - name: "FUN_DEAL_DAMAGE"
+        signature: "48 83 EC ?? 83 B9 ?? ?? ?? ?? 0F 75"
+        instruction_offset: 0
+        is_relative: false

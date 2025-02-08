@@ -51,7 +51,7 @@ func main() {
 
 	patternTree := tree.New(patterns...)
 
-	dataSource := windows.NewMemory("MonsterHunterRise.exe", 25596) // file.New(args.Executable)
+	dataSource := windows.NewMemory("MonsterHunterWorld.exe", 9860)
 	log.Printf("Finished loading up datasource")
 
 	scanner := reader.New(dataSource, patternTree)
