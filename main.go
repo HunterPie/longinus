@@ -44,14 +44,15 @@ func main() {
 	patterns := make([]*signature.PatternOwner, 0)
 
 	for _, pattern := range config.Executables[0].Signatures {
-		patterns = append(patterns, signature.New(pattern.Name, pattern.Signature, pattern.InstructionOffset, pattern.IsRelative))
+		patterns = append(patterns, signature.New(pattern.Name, pattern.Signature, pattern.InstructionOffset, pattern.IsRelative, pattern.Offset))
 	}
 
 	log.Printf("Loaded %d patterns", len(patterns))
 
 	patternTree := tree.New(patterns...)
 
-	dataSource := windows.NewMemory("MonsterHunterWorld.exe", 9860)
+	log.Printf("%s", args.Executable)
+	dataSource := windows.NewMemory(args.Executable)
 	log.Printf("Finished loading up datasource")
 
 	scanner := reader.New(dataSource, patternTree)
