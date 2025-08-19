@@ -4,6 +4,7 @@ type LonginusSignatureConfiguration struct {
 	Name              string `yaml:"name"`
 	Signature         string `yaml:"signature"`
 	InstructionOffset int    `yaml:"instruction_offset"`
+	Offset            int    `yaml:"offset"`
 	IsRelative        bool   `yaml:"is_relative"`
 }
 

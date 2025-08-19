@@ -50,7 +50,7 @@ func (s *Scanner) Execute() []*ScanResult {
 				addressFound = calculateRelativeOffset(i, owner.TargetOffset, bytes[targetStart:targetEnd])
 			}
 
-			found = append(found, NewResult(addressFound+PE_OFFSET, owner))
+			found = append(found, NewResult(addressFound+int64(owner.Offset), owner))
 		}
 	}
 

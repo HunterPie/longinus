@@ -1,0 +1,56 @@
+executables:
+  - name: "MonsterHunterWilds.exe"
+    signatures:
+      - name: "Game::EnemyManager"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B 88 ?? ?? ?? ?? 48 8B 49 ?? 48 8B 51 ?? 89 F9"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Data::SizeTables"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B 88 ?? ?? ?? ?? 48 8B 49 ?? 48 8B 51 ?? 89 F9"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::CameraManager"
+        signature: "48 8B 15 ?? ?? ?? ?? 48 89 F1 E8 ?? ?? ?? ?? 48 89 F1 48 89 C2 E8 ?? ?? ?? ?? 84 C0 74"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Encryption::Round"
+        signature: "48 8D 15 ?? ?? ?? ?? 48 8D 74 24 ?? 41 B9"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Encryption::Key"
+        signature: "48 8D 15 ?? ?? ?? ?? 48 8D 74 24 ?? 41 B9"
+        instruction_offset: 3
+        offset: 0x10
+        is_relative: true
+      - name: "Game::GUIManager"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 85 C0 74 ?? 48 83 78 ?? 00 74 ?? 48 8B 80 ?? ?? ?? ?? 48 85 C0 74 ?? 80 B8"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::PlayerManager"
+        signature: "48 8B 15 ?? ?? ?? ?? 48 89 F9 E8 ?? ?? ?? ?? 48 85 C0 0F 84 ?? ?? ?? ?? 48 8B 5E ?? BD 03 00 00 00"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::QuestManager"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B 90 ?? ?? ?? ?? 48 8B 7A ?? 48 89 F1"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::SaveManager"
+        signature: "4C 8B 3D ?? ?? ?? ?? 49 8B 7F ?? 4C 8D"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::WorldManager"
+        signature: "48 8B 15 ?? ?? ?? ?? E8 ?? ?? ?? ?? 89 C3 45 31 F6"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::PauseManager"
+        signature: "48 8B 1D ?? ?? ?? ?? 4C 8B 05 ?? ?? ?? ?? 48 8B 53 ?? 4C 8D 4C 24"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::NetworkManager"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B 90 ?? ?? ?? ?? E8 ?? ?? ?? ?? 83 F8 FF"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::EnvironmentManager"
+        signature: "48 8B 15 ?? ?? ?? ?? C7 44 24 20 ?? ?? ?? ?? 31 FF C5"
+        instruction_offset: 3
+        is_relative: true

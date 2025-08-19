@@ -6,7 +6,8 @@ import (
 )
 
 var (
-	ErrMissingExecutable = errors.New("missing --executable argument")
+	ErrMissingExecutable  = errors.New("missing --executable argument")
+	ErrMissingPIDArgument = errors.New("missing --pid argument")
 )
 
 func verifyRequired(value *string) bool {
