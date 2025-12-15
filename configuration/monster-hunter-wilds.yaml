@@ -39,7 +39,7 @@ executables:
         instruction_offset: 3
         is_relative: true
       - name: "Game::WorldManager"
-        signature: "48 8B 15 ?? ?? ?? ?? E8 ?? ?? ?? ?? 89 C3 45 31 F6"
+        signature: "48 8B 05 ?? ?? ?? ?? C5 FA 10 70 ?? 45"
         instruction_offset: 3
         is_relative: true
       - name: "Game::PauseManager"
@@ -52,5 +52,9 @@ executables:
         is_relative: true
       - name: "Game::EnvironmentManager"
         signature: "48 8B 15 ?? ?? ?? ?? C7 44 24 20 ?? ?? ?? ?? 31 FF C5"
+        instruction_offset: 3
+        is_relative: true
+      - name: "Game::NpcManager"
+        signature: "48 8B 05 ?? ?? ?? ?? 48 8B 90 ?? ?? ?? ?? 48 89 F1 E8 ?? ?? ?? ?? 01 D8"
         instruction_offset: 3
         is_relative: true
