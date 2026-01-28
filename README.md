@@ -1,3 +1,6 @@
+> [!WARNING]
+> Longinus was discontinued in favor of [Luna](https://github.com/haato3o/luna).
+
 ## longinus
 
 Longinus is a byte signature tree generator and scanner for finding byte patterns in binary files. In Brazil, Saint Longinus is known for its power of finding missing objects.
